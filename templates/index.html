@@ -1,0 +1,49 @@
+{{define "Index"}}
+{{template "_head"}}
+
+<body>
+  {{template "_menu"}}
+  <div class="container">
+    <section class="card">
+      <table class="table table-striped table-hover mb-0">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Valor Devido</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Go Script for loop the Struct Produtos -->
+          {{range .}}
+          <tr>
+            <td>{{.Nome}}</td>
+            <td>{{.Telefone}}</td>
+            <td>{{.ValorDevido}}</td>
+            <td><a href="edit?id={{.Id}}" class="btn btn-info">Editar</a></td>
+            <td><a href="/delete?id={{.Id}}" class="btn btn-danger" onclick="onDelete('{{.Id}}')">Deletar</a></td>
+          </tr>
+          {{end}}
+        </tbody>
+      </table>
+    </section>
+  </div>
+  <!-- Set this div at the center of the screen and padded top 15 px-->
+  <div class="container d-flex justify-content-center pt-5">
+    <a href="/new" class="btn btn-primary">Adicionar Fiador</a>
+  </div>
+</body>
+
+<script>
+  function onDelete(id) {
+    if (!confirm("Deseja realmente deletar este registro?")) {
+      event.preventDefault();
+    } else{
+      console.log("teste")
+    }
+  }
+</script>
+
+</html>
+{{end}}
