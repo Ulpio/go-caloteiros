@@ -87,6 +87,7 @@ func EditarDevedor(id string) Devedor {
 		d.Telefone = telefone
 		d.ValorDevido = valorDevido
 	}
+
 	defer db.Close()
 	return d
 }

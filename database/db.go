@@ -2,7 +2,7 @@ package database
 
 import (
 	"database/sql"
-	// Import the sqlite3 driver
+
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
 )
